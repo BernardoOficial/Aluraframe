@@ -24,11 +24,11 @@ class ProxyFactory {
             ,
             set: function (target, prop, valor, receiver) {
 
-                if (props.includes(prop))
-                    acao(target)
-                //target[prop] = valor;
+                if (props.includes(prop)) {
 
-                console.log(prop);
+                    target[prop] = valor;
+                    acao(target)
+                }
 
                 return Reflect.set(target, prop, valor, receiver);
             }
