@@ -39,15 +39,7 @@ class NegociacoesView extends View {
                         <td colspan="3"></td>
                         <td>
 
-            ${(function () {
-
-                let total = model.negociacoes.reduce(function (acumulador, valorAtual) {
-                    return acumulador + valorAtual.volume;
-                }, 0)
-
-                return total;
-
-            })()}
+            ${model.volumeTotal}
 
                         </td>
                     </tr >
