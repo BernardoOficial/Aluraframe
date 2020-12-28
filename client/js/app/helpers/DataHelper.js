@@ -33,5 +33,14 @@ class DataHelper {
         return `${dataArray.dia}/${dataArray.mes}/${dataArray.ano}`;
     }
 
+    static dataStringParaDate(data) {
+
+        return {
+            dia: new Date(data).getDate(),
+            mes: new Date(data).getMonth() + 1,
+            ano: new Date(data).getFullYear(),
+        }
+    }
+
 
 }

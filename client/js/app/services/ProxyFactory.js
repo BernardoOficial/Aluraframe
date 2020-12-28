@@ -13,7 +13,7 @@ class ProxyFactory {
 
                     return function () {
 
-                        console.log(`Acionado o método ${prop}`);
+                        // console.log(`Acionado o método ${prop}`);
                         Reflect.apply(target[prop], target, arguments);
                         return acao(target);
                     }
