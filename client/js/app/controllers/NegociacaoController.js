@@ -11,7 +11,7 @@ class NegociacaoController {
         this._listaNegociacoes = new Bind(
             new ListaNegociacoes(),
             new NegociacoesView($("#negociacoesView")),
-            "adicionar", "limpar"
+            "adicionar", "limpar", "ordenar", "inverterOrdem"
         )
 
         this._mensagem = new Bind(
@@ -19,6 +19,8 @@ class NegociacaoController {
             new MensagemView($("#mensagemView")),
             "texto"
         )
+
+        this._ordemAtual = "";
     }
 
     adicionar(evento) {
@@ -66,6 +68,17 @@ class NegociacaoController {
         this._inputValor.value = 0.0;
 
         this._inputData.focus();
+    }
+
+    ordenar(coluna) {
+
+        if (this._ordemAtual == coluna) {
+            this._listaNegociacoes.inverterOrdem()
+        }
+        else {
+            this._listaNegociacoes.ordenar((a, b) => a[coluna] - b[coluna])
+        }
+        this._ordemAtual = coluna
     }
 
 }
