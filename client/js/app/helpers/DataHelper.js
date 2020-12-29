@@ -7,7 +7,7 @@ class DataHelper {
 
     static textoParaData(texto) {
 
-        let regex = /\d{4}-\d{2}-\d{2}/g;
+        let regex = /^\d{4}-\d{2}-\d{2}$/g;
 
         if (!regex.test(texto))
             throw new Error("A data não segue o padrão aaaa-mm-dd");
