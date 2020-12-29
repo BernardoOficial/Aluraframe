@@ -25,48 +25,39 @@ class NegociacaoService {
 
     obterNegociacoesDaSemana() {
 
-        return new Promise((resolve, reject) => {
-
-            this._http.get('negociacoes/semana')
-                .then(negociacoes => {
-                    resolve(negociacoes.map(objeto => new Negociacao(DataHelper.dataStringParaDate(objeto.data), objeto.quantidade, objeto.valor)))
-                })
-                .catch(erro => {
-                    console.log(erro);
-                    reject('Falha ao importar as negociações da semana')
-                })
-        })
+        return this._http.get('negociacoes/semana')
+            .then(negociacoes => {
+                return negociacoes.map(objeto => new Negociacao(DataHelper.dataStringParaDate(objeto.data), objeto.quantidade, objeto.valor))
+            })
+            .catch(erro => {
+                console.log(erro);
+                throw new Error('Falha ao importar as negociações da semana')
+            })
 
     }
 
     obterNegociacoesDaSemanaAnterior() {
 
-        return new Promise((resolve, reject) => {
-
-            this._http.get('negociacoes/anterior')
-                .then(negociacoes => {
-                    resolve(negociacoes.map(objeto => new Negociacao(DataHelper.dataStringParaDate(objeto.data), objeto.quantidade, objeto.valor)))
-                })
-                .catch(erro => {
-                    console.log(erro);
-                    reject('Falha ao importar as negociações da semana anterior')
-                })
-        })
+        return this._http.get('negociacoes/anterior')
+            .then(negociacoes => {
+                return negociacoes.map(objeto => new Negociacao(DataHelper.dataStringParaDate(objeto.data), objeto.quantidade, objeto.valor))
+            })
+            .catch(erro => {
+                console.log(erro);
+                throw new Error('Falha ao importar as negociações da semana anterior')
+            })
     }
 
     obterNegociacoesDaSemanaRetrasada() {
 
-        return new Promise((resolve, reject) => {
-
-            this._http.get('negociacoes/retrasada')
-                .then(negociacoes => {
-                    resolve(negociacoes.map(objeto => new Negociacao(DataHelper.dataStringParaDate(objeto.data), objeto.quantidade, objeto.valor)))
-                })
-                .catch(erro => {
-                    console.log(erro);
-                    reject('Falha ao importar as negociações da semana retrasada')
-                })
-        })
+        return this._http.get('negociacoes/retrasada')
+            .then(negociacoes => {
+                return negociacoes.map(objeto => new Negociacao(DataHelper.dataStringParaDate(objeto.data), objeto.quantidade, objeto.valor))
+            })
+            .catch(erro => {
+                console.log(erro);
+                throw new Error('Falha ao importar as negociações da semana retrasada')
+            })
     }
 
 }

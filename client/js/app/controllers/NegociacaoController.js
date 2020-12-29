@@ -42,7 +42,7 @@ class NegociacaoController {
                 negociacoes.forEach(negociacao => this._listaNegociacoes.adicionar(negociacao));
                 this._mensagem.texto = 'Negociações do período importadas com sucesso';
             })
-            .catch(error => this._mensagem.texto = error);
+            .catch(erro => this._mensagem.texto = erro);
     }
 
     limparNegociacoes() {
